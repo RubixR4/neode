@@ -60,6 +60,18 @@ export default class Builder {
         return this;
     }
 
+    handleFilter(parameter, queryField, operator = '=') {
+        if (parameter) {
+            if (operator == '=~') {
+                parameter = "(?i).*" + parameter + ".*";
+            }
+
+            this._current.where(parameter, operator, parameter);
+        }
+
+        return this;
+    }
+
     /**
      * Match a Node by a definition
      *
@@ -201,10 +213,10 @@ export default class Builder {
      * @param  {Int}    value
      * @return {Builder}
      */
-    whereId(alias, value) {
+    whereId(alias, value, negative = false) {
         const param = this._addWhereParameter(`${alias}_id`, neo4j.int(value));
 
-        this._where.append(new WhereId(alias, param));
+        this._where.append(new WhereId(alias, param, negative));
 
         return this;
     }

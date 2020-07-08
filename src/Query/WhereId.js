@@ -1,9 +1,8 @@
 export default class WhereId {
-    constructor(alias, param) {
+    constructor(alias, param, negative) {
         this._alias = alias;
         this._param = param;
-
-        this._negative = false;
+        this._negative = negative;
     }
 
     setNegative() {

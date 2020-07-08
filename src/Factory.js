@@ -116,7 +116,7 @@ export default class Factory {
                 return;
             }
 
-            const definition = this.getDefinition(null, referenceNode.labels())
+            const definition = this.getDefinition(null, referenceNode.labels());
             definition.eager().forEach(eager => {
                 if (relation.type != eager.relationship()) {
                     return;

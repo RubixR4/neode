@@ -136,8 +136,8 @@ var Relationship = /*#__PURE__*/function (_Entity) {
       var _this2 = this;
 
       var output = {
-        _id: this.id(),
-        _type: this.type()
+        id: this.id() //_type: this.type(),
+
       };
       var definition = this.definition(); // Properties
 

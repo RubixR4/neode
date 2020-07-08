@@ -186,8 +186,8 @@ var Node = /*#__PURE__*/function (_Entity) {
       var _this4 = this;
 
       var output = {
-        _id: this.id(),
-        _labels: this.labels()
+        id: this.id() //_labels: this.labels(),
+
       }; // Properties
 
       this._model.properties().forEach(function (property, key) {

@@ -122,8 +122,8 @@ export default class Node extends Entity {
      */
     toJson(group) {
         const output = {
-            _id: this.id(),
-            _labels: this.labels(),
+            id: this.id(),
+            //_labels: this.labels(),
         };
 
         // Properties

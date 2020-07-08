@@ -79,8 +79,8 @@ export default class Relationship extends Entity {
      */
     toJson(group) {
         const output = {
-            _id: this.id(),
-            _type: this.type(),
+            id: this.id(),
+            //_type: this.type(),
         };
 
         const definition = this.definition();

@@ -115,6 +115,21 @@ var Builder = /*#__PURE__*/function () {
       this._where = new _WhereStatement["default"](prefix);
       return this;
     }
+  }, {
+    key: "handleFilter",
+    value: function handleFilter(parameter, queryField) {
+      var operator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '=';
+
+      if (parameter) {
+        if (operator == '=~') {
+          parameter = "(?i).*" + parameter + ".*";
+        }
+
+        this._current.where(parameterString, operator, parameter);
+      }
+
+      return this;
+    }
     /**
      * Match a Node by a definition
      *
@@ -287,9 +302,11 @@ var Builder = /*#__PURE__*/function () {
   }, {
     key: "whereId",
     value: function whereId(alias, value) {
+      var negative = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
       var param = this._addWhereParameter("".concat(alias, "_id"), _neo4jDriver["default"]["int"](value));
 
-      this._where.append(new _WhereId["default"](alias, param));
+      this._where.append(new _WhereId["default"](alias, param, negative));
 
       return this;
     }
