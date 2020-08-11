@@ -146,8 +146,11 @@ The following property types are supported:
 - `number`
 - `int`
 - `integer`
+- `bool`
+- `boolean`
 - `float`
 - `uuid`
+- `array`
 - `node`
 - `nodes`
 - `relationship`

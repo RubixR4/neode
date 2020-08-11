@@ -38,6 +38,10 @@ export default function CleanValue(config, value) {
             value = !! value;
             break;
 
+        case 'array':
+            value = Array.isArray(value) ? value : [value];
+            break;
+
         case 'timestamp':
             value = value instanceof Date ? value.getTime() : value;
             break;

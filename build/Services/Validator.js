@@ -234,6 +234,10 @@ function BuildValidationSchema(schema) {
         validation = _joi["default"].number();
         break;
 
+      case 'array':
+        validation = _joi["default"].array();
+        break;
+
       default:
         validation = _joi["default"].any();
         break;
