@@ -48,6 +48,22 @@ describe('Services/CleanValue.js', () => {
         expect(output).to.equal(expected);
     });
 
+    describe('Array', () => {
+        it('should handle an array', () => {
+            const input = ['firstElement', 'secondElement', 'thirdElement'];
+            const output = CleanValue({ type: 'array' }, input);
+
+            expect(output).to.equal(input);
+        });
+
+        it('should handle an array from a single element', () => {
+            const input = 'element';
+            const output = CleanValue({ type: 'array' }, input);
+
+            expect(output).to.equal(input);
+        });
+    });
+
     describe('Date', () => {
         it('should handle a Date', () => {
             const input = new Date();

@@ -51,12 +51,12 @@ export default class Property {
         return this._primary || this._protected;
     }
 
-    hidden() {
-        return this._serialization.hidden || false;
-    }
+    hidden(group) {
+        if ( Array.isArray(this._hidden) ) {
+            return (this._hidden.indexOf(group) !== -1);
+        }
 
-    groups() {
-        return this._serialization.groups || [];
+        return this._hidden || false;
     }
 
     readonly() {

@@ -143,7 +143,7 @@ export default class Node extends Entity {
 
         // Properties
         this._model.properties().forEach((property, key) => {
-            if ( property.hidden() ) {
+            if ( property.hidden(group) ) {
                 return;
             }
 

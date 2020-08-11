@@ -87,7 +87,7 @@ export default class Relationship extends Entity {
 
         // Properties
         definition.properties().forEach((property, key) => {
-            if ( property.hidden() ) {
+            if ( property.hidden(group) ) {
                 return;
             }
 
